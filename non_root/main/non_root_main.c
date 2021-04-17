@@ -17,44 +17,7 @@
 
 // #define MEMORY_DEBUG
 
-static const char *TAG = "get_started";
-
-#define CONFIG_ROUTER_SSID      "sumit_office"
-#define CONFIG_ROUTER_PASSWORD  "61249sumit"
-
-static void root_task(void *arg)
-{
-    mdf_err_t ret                    = MDF_OK;
-    char *data                       = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
-    size_t size                      = MWIFI_PAYLOAD_LEN;
-    uint8_t src_addr[MWIFI_ADDR_LEN] = {0x0};
-    mwifi_data_type_t data_type      = {0};
-
-    MDF_LOGI("Root is running");
-
-    for (int i = 0;; ++i) {
-        if (!mwifi_is_started()) {
-            vTaskDelay(500 / portTICK_RATE_MS);
-            continue;
-        }
-
-        size = MWIFI_PAYLOAD_LEN;
-        memset(data, 0, MWIFI_PAYLOAD_LEN);
-        ret = mwifi_root_read(src_addr, &data_type, data, &size, portMAX_DELAY);
-        MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_read", mdf_err_to_name(ret));
-        MDF_LOGI("Root receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
-
-        size = sprintf(data, "(%d) Hello node!", i);
-        ret = mwifi_root_write(src_addr, 1, &data_type, data, size, true);
-        MDF_ERROR_CONTINUE(ret != MDF_OK, "mwifi_root_recv, ret: %x", ret);
-        MDF_LOGI("Root send, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
-    }
-
-    MDF_LOGW("Root is exit");
-
-    MDF_FREE(data);
-    vTaskDelete(NULL);
-}
+static const char *TAG = "non_root_main";
 
 static void node_read_task(void *arg)
 {
@@ -64,7 +27,7 @@ static void node_read_task(void *arg)
     mwifi_data_type_t data_type      = {0x0};
     uint8_t src_addr[MWIFI_ADDR_LEN] = {0x0};
 
-    MDF_LOGI("Note read task is running");
+    MDF_LOGI("Node read task is running");
 
     for (;;) {
         if (!mwifi_is_connected()) {
@@ -79,7 +42,7 @@ static void node_read_task(void *arg)
         MDF_LOGI("Node receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
     }
 
-    MDF_LOGW("Note read task is exit");
+    MDF_LOGW("Exiting node read task .");
 
     MDF_FREE(data);
     vTaskDelete(NULL);
@@ -108,7 +71,7 @@ void node_write_task(void *arg)
         vTaskDelay(1000 / portTICK_RATE_MS);
     }
 
-    MDF_LOGW("Node write task is exit");
+    MDF_LOGW("Exiting node write task");
 
     MDF_FREE(data);
     vTaskDelete(NULL);
@@ -211,8 +174,6 @@ void app_main()
 {
     mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
     mwifi_config_t config   = {
-        .router_ssid = CONFIG_ROUTER_SSID,
-        .router_password = CONFIG_ROUTER_PASSWORD,
         .channel   = CONFIG_MESH_CHANNEL,
         .mesh_id   = CONFIG_MESH_ID,
         .mesh_type = CONFIG_DEVICE_TYPE,
@@ -236,18 +197,12 @@ void app_main()
     /**
      * @brief Data transfer between wifi mesh devices
      */
-    if (config.mesh_type == MESH_ROOT) {
-        xTaskCreate(root_task, "root_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-    } else {
-        xTaskCreate(node_write_task, "node_write_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-        xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-    }
+    xTaskCreate(node_write_task, "node_write_task", 4 * 1024,
+                NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
+    xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
+                NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
 
     TimerHandle_t timer = xTimerCreate("print_system_info", 10000 / portTICK_RATE_MS,
                                        true, NULL, print_system_info_timercb);
     xTimerStart(timer, 0);
-    // http_request_example_task_create();
 }
