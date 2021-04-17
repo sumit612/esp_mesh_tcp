@@ -38,21 +38,6 @@ Here esp-idf release/v4.2 is used. For windows this is the link for installer: [
     cd ~/esp/esp-mdf
     source export.sh
     ```
-
-1. **Start a Project**: The word *project* refers to the communication example between two ESP-WIFI-MESH devices.
-
-    ```shell
-    cp -r $MDF_PATH/examples/get-started/ .
-    cd  get-started/
-    ```
-
-1. **Build and Flash**: For the rest, just keep the default configuration untouched.
-
-    ```shell
-    idf.py menuconfig
-    idf.py -p [port] -b [baudrate] erase_flash flash
-    ```
-
 1. [**Monitor/Debugging**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/idf-monitor.html): If you want to exit the monitor, please use the shortcut key ``Ctrl+]``.
 
     ```shell

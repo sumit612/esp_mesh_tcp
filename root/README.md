@@ -15,6 +15,21 @@ To run this example, you need at least two development boards, one configured as
 
 You need to go to the submenu `Example Configuration` and configure one device as a root node, and the others as non-root nodes with `make menuconfig`(Make) or `idf.py menuconfig`(CMake).
 
+
+1. **Start a Project**: The word *project* refers to the communication example between two ESP-WIFI-MESH devices.
+
+    ```shell
+    cp -r $MDF_PATH/examples/get-started/ .
+    cd  get-started/
+    ```
+
+1. **Build and Flash**: For the rest, just keep the default configuration untouched.
+
+    ```shell
+    idf.py menuconfig
+    idf.py -p [port] -b [baudrate] erase_flash flash
+    ```
+
 You can also go to the submenu `Component config -> MDF Mwifi`, and configure the ESP-WIFI-MESH related parameters like max number of layers, the number of the connected devices on each layer, the broadcast interval, etc.
 
 <div align=center>
