@@ -55,7 +55,7 @@ Here esp-idf release/v4.2 is used. For windows this is the link for installer: [
 Create mobile hotspot with "WPA2-Personal" security and disable "turn off hotspot aytomatically" option. 
 Now open TCP ternimal and start tcp server as shown in the below screenshots.
 
-<img src="tcp_ternimal_settings.jpg">
+<img src="tcp_terminal_settings.jpg">
 <img src="tcp_terminal_waiting.jpg">
 
 After succesful tcp server setup take note of the IP address shown in the top left of the TCP Terminal app. This IP will be provided to root device via menuconfig. 
