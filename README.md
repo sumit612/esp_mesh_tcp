@@ -1,7 +1,7 @@
 # ESP_MESH_TCP
-THis example demonstates how to use ESP-MDF framework for transferring data from non-root(node) device to tcp socket. 
-1. Only root device is connected to wifi router/mobile hotspot here 
-2. The non-root devices/nodes send data root device 
+THis example demonstates how to use ESP-MDF framework for transferring data from non-root node to tcp socket. 
+1. Only root node is connected to wifi router/mobile hotspot here 
+2. The non-root nodes send data to root node 
 3. The root-device forward their data to TCP socket
 
 Needed componensts:
@@ -64,14 +64,14 @@ Now open TCP ternimal and start tcp server as shown in the below screenshots.
 <img src="tcp_terminal_settings.jpg">
 <img src="tcp_terminal_waiting.jpg">
 
-After succesful tcp server setup take note of the IP address shown in the top left of the TCP Terminal app. This IP will be provided to root device via menuconfig. 
+After succesful tcp server setup take note of the IP address shown in the top left of the TCP Terminal app. This IP will be provided to root node via menuconfig. 
 
-1. **Flash root and non-root device**
+1. **Flash root and non-root node**
 The the instructions provided in root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/root/README.md) and non-root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/non_root/README.md). 
-Please take note that in the mesh network topoligy used in this example can have only one root device and multiple non-root device. If everything is okay then ESP32 root and non-root will send below data through UART respectively.
+Please take note that in the mesh network topoligy used in this example can have only one root node and multiple non-root node. If everything is okay then ESP32 root and non-root will send below data through UART respectively.
 <img src="root_and_non_root_debug.PNG">
 
-The data shown in TCP Terminal are actually from non-root device.
+The data shown in TCP Terminal are actually from non-root node.
 <img src="tcp_terminal_connect.jpg">
 
 The points below have been directly put from ESP-MDF [README.md](https://github.com/espressif/esp-mdf/blob/master/README.md) as they seemed informative. 
