@@ -118,6 +118,9 @@ This section provides the steps for quick start with your development of ESP-MDF
 
 The directory ``~/esp`` will be used further to install the compiling toolchain, ESP-MDF and demo programs. You can use another directory, but make sure to modify the commands accordingly.
 
+1. [**Setup Toolchain**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/index.html#step-1-set-up-the-toolchain): please set up according to your PC's operating system ([Windows](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/windows-setup.html), [Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/linux-setup.html) or [Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/macos-setup.html)). 
+Here esp-idf release/v4.2 and esp-mdf "master" branch as of 17/04/2021 have been used.
+
 1. **Get ESP-MDF**:
 
     ```shell
@@ -126,12 +129,7 @@ The directory ``~/esp`` will be used further to install the compiling toolchain,
 
     If you clone without the `--recursive` option, please navigate to the esp-mdf directory and run the command `git submodule update --init`
 
-1. [**Setup Toolchain**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/index.html#step-1-set-up-the-toolchain): please set up according to your PC's operating system ([Windows](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/windows-setup.html), [Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/linux-setup.html) or [Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/macos-setup.html)). If you use linux, you can use this commands.
 
-    ```shell
-    cd ~/esp/esp-mdf/esp-idf
-    ./install.sh
-    ```
 
 1. **Set up ESP-MDF Path**: Toolchain uses the environment variable ``MDF_PATH`` to access ESP-MDF. The setup of this variable is similar to that of the variable ``IDF_PATH``. Please refer to [`Add IDF_PATH & idf.py PATH to User Profile`](https://docs.espressif.com/projects/esp-idf/en/v4.0.1/get-started/index.html#step-4-set-up-the-environment-variables). If you use linux, you can use this commands.
 
@@ -204,5 +202,4 @@ The directory ``~/esp`` will be used further to install the compiling toolchain,
 * If you want to contribute ESP-MDF related codes, please refer to [Code Contribution Guide](docs/en/contribute/index.rst).
 * To visit ESP32 official forum, please go to [ESP32 BBS](https://esp32.com/).
 * For the hardware documents related to ESP32-MeshKit, please visit [Espressif Website](https://www.espressif.com/en/support/download/documents).
-* ESP32-MeshKit-Light purchase link: [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.1.55a83647K8jlrh&id=573310711489&ns=1&abbucket=3#detail).
-* ESP32-Buddy purchase link: Coming soon.
+
