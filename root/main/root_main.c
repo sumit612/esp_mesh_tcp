@@ -19,8 +19,8 @@
 
 static const char *TAG = "get_started";
 
-#define CONFIG_ROUTER_SSID      "sumit_office"
-#define CONFIG_ROUTER_PASSWORD  "61249sumit"
+#define ROUTER_SSID      "sumit_office"
+#define ROUTER_PASSWORD  "61249sumit"
 
 static esp_netif_t *netif_sta = NULL;
 
@@ -385,8 +385,8 @@ void app_main()
 {
     mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
     mwifi_config_t config   = {
-        .router_ssid = CONFIG_ROUTER_SSID,
-        .router_password = CONFIG_ROUTER_PASSWORD,
+        .router_ssid = ROUTER_SSID,
+        .router_password = ROUTER_PASSWORD,
         .channel   = CONFIG_MESH_CHANNEL,
         .mesh_id   = CONFIG_MESH_ID,
         .mesh_type = CONFIG_DEVICE_TYPE,
@@ -410,16 +410,9 @@ void app_main()
     /**
      * @brief Data transfer between wifi mesh devices
      */
-    if (config.mesh_type == MESH_ROOT) {
-        xTaskCreate(root_task, "root_task", 4 * 1024,
+    xTaskCreate(root_task, "root_task", 4 * 1024,
                     NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-    } else {
-        xTaskCreate(node_write_task, "node_write_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-        xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-    }
-
+    
     TimerHandle_t timer = xTimerCreate("print_system_info", 10000 / portTICK_RATE_MS,
                                        true, NULL, print_system_info_timercb);
     xTimerStart(timer, 0);
