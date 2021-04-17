@@ -33,7 +33,7 @@ ESP-MDF is based on the [ESP-WIFI-MESH](https://docs.espressif.com/projects/esp-
 
 ESP-MDF consists of Utils, Components and Examples (see the below figure). Utils is the encapsulation and third-party library of ESP-IDF APIs. Components are the ESP-MDF functional modules that use Utils APIs. Examples are the ESP-WIFI-MESH solutions based on the Components.
 
-<img src="docs/_static/mdf_framework.jpg">
+<img src="root_and_non_root_debug.PNG">
 
 - **Utils**：
     - Third Party: the third-party items
