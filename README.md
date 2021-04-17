@@ -1,5 +1,9 @@
 # ESP_MESH_TCP
 THis example demonstates how to use ESP-MDF framework for transferring data from non-root(node) device to tcp socket. 
+1. Only root device is connected to wifi router/mobile hotspot here 
+2. The non-root devices/nodes send data root device 
+3. The root-device forward their data to TCP socket
+
 Needed componensts:
 1. At least two ESP32 boards(dev-kitc used here) 
 2. One mobile hotspot
@@ -19,7 +23,7 @@ This section provides the steps for quick start with your development of ESP-MDF
 The directory ``~/esp`` will be used further to install the compiling toolchain, ESP-MDF and demo programs. You can use another directory, but make sure to modify the commands accordingly.
 
 1. **Get ESP-IDF**:[**Setup Toolchain**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/index.html#step-1-set-up-the-toolchain): please set up according to your PC's operating system ([Windows](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/windows-setup.html), [Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/linux-setup.html) or [Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/macos-setup.html)). 
-Here esp-idf release/v4.2 is used. For windows this is the link for installer: [ESP_IDF_TOOLCHAIN_INSTALLER](https://dl.espressif.com/dl/esp-idf-tools-setup-2.3.exe) . The example was tested in ESP-IDF Powershell.
+Here esp-idf release/v4.2 is used. For windows this is the link for installer: [ESP_IDF_TOOLCHAIN_INSTALLER](https://dl.espressif.com/dl/esp-idf-tools-setup-online-2.5.exe). The example was tested in ESP-IDF Powershell.
 
 
 1. **Get ESP-MDF**:
