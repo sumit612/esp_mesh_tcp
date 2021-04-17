@@ -4,6 +4,8 @@ THis example demonstates how to use ESP-MDF framework for transferring data from
 2. The non-root nodes send data to root node 
 3. The root-device forward their data to TCP socket
 
+<img src="topology.PNG">
+
 Needed componensts:
 1. At least two ESP32 boards(dev-kitc used here) 
 2. One mobile hotspot
