@@ -118,10 +118,9 @@ This section provides the steps for quick start with your development of ESP-MDF
 
 The directory ``~/esp`` will be used further to install the compiling toolchain, ESP-MDF and demo programs. You can use another directory, but make sure to modify the commands accordingly.
 
-1. [**Setup Toolchain**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/index.html#step-1-set-up-the-toolchain): please set up according to your PC's operating system ([Windows](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/windows-setup.html), [Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/linux-setup.html) or [Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/macos-setup.html)). 
-Here esp-idf release/v4.2 is used.
+1. **Get ESP-IDF**:[**Setup Toolchain**](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/index.html#step-1-set-up-the-toolchain): please set up according to your PC's operating system ([Windows](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/windows-setup.html), [Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/linux-setup.html) or [Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started-cmake/macos-setup.html)). 
+Here esp-idf release/v4.2 is used. For windows this is the link for installer: [ESP_IDF_TOOLCHAIN_INSTALLER](https://dl.espressif.com/dl/esp-idf-tools-setup-2.3.exe) . The example was tested in ESP-IDF Powershell.
 
-For windows this is the link for installer: [ESP_IDF_TOOLCHAIN_INSTALLER](https://dl.espressif.com/dl/esp-idf-tools-setup-2.3.exe)
 
 1. **Get ESP-MDF**:
 
