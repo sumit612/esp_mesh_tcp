@@ -69,7 +69,7 @@ Now open TCP ternimal and start tcp server as shown in the below screenshots.
 After succesful tcp server setup take note of the IP address shown in the top left of the TCP Terminal app. This IP will be provided to root node via menuconfig. 
 
 1. **Flash root and non-root node**
-The the instructions provided in root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/root/README.md) and non-root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/non_root/README.md). 
+Please follow the instructions provided in root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/root/README.md) and non-root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/non_root/README.md). 
 Please take note that in the mesh network topoligy used in this example can have only one root node and multiple non-root node. If everything is okay then ESP32 root and non-root will send below data through UART respectively.
 <img src="root_and_non_root_debug.PNG">
 
