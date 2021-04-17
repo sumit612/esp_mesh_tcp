@@ -1,5 +1,5 @@
 # ESP_MESH_TCP
-THis example demonstates how to use ESP-MDF framework for transferring data from non-root node to tcp socket. 
+THis example demonstates how to use ESP-MDF framework for transferring data from non-root(node) device to tcp socket. 
 Needed componensts:
 1. At least two ESP32 boards(dev-kitc used here) 
 2. One mobile hotspot
@@ -66,10 +66,25 @@ Here esp-idf release/v4.2 is used. For windows this is the link for installer: [
     git pull
     git submodule update --init --recursive
     ```
+1. **Creating TCP server**
+Create mobile hotspot with "WPA2-Personal" security and disable "turn off hotspot aytomatically" option. 
+Now open TCP ternimal and start tcp server as shown in the below screenshots.
 
+<img src="tcp_ternimal_settings.jpg">
+<img src="tcp_terminal_waiting.jpg">
+
+After succesful tcp server setup take note of the IP address shown in the top left of the TCP Terminal app. This IP will be provided to root device via menuconfig. 
+
+1. **Flash root and non-root device**
+The the instructions provided in root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/root/README.md) and non-root [README.md](https://github.com/sumit612/esp_mesh_tcp/blob/dev/non_root/README.md). 
+Please take note that in the mesh network topoligy used in this example can have only one root device and multiple non-root device. If everything is okay then ESP32 root and non-root will send below data through UART respectively.
+<img src="root_and_non_root_debug.PNG">
+
+The data shown in TCP Terminal are actually from non-root device.
+<img src="tcp_terminal_connect.jpg">
 
 The points below have been directly put from ESP-MDF [README.md](https://github.com/espressif/esp-mdf/blob/master/README.md) as they seemed informative. 
-	
+
 ## ESP-WIFI-MESH Highlights
 
 * **Easy setup**: ESP-WIFI-MESH expands the original Wi-Fi hotspot range to the reach of the most distant node in the mesh cloud. Such a network is automatically formed, self-healing and self-organizing. It saves the efforts of laying cables. All you need to do is configure the router password.
