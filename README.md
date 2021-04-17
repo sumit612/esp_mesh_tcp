@@ -12,6 +12,8 @@ This example has necessary intructions and resources to build a ESP32 wifi mesh 
 
 ### Quick Start
 
+Most of the instructions are taken from ESP-MDF README.md and also some instructons and screenshots from the example MESH network are provided.
+
 This section provides the steps for quick start with your development of ESP-MDF applications. For more details, please refer to [ESP-IDF Get Started](https://docs.espressif.com/projects/esp-idf/en/v4.0.1/get-started/index.html#get-started).
 
 The directory ``~/esp`` will be used further to install the compiling toolchain, ESP-MDF and demo programs. You can use another directory, but make sure to modify the commands accordingly.
