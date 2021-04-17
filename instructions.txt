@@ -1,0 +1,27 @@
+ESP-IDF Tools Installer
+The easiest way to install ESP-IDF’s prerequisites is to download one of ESP-IDF Tools Installers from this URL:
+Online Installer (30 MB): https://dl.espressif.com/dl/esp-idf-tools-setup-online-2.5.exe
+
+python -m pip install -U pip setuptools
+
+first change sytstem variable: IDF_PATH=esp-mdf/esp-idf and path=esp-mdf/esp-idf/tools
+pip install virtualenv
+
+esp-mdf
+	install.bat
+	export.bat
+esp-idf
+	install.ps1
+	export.ps1
+	
+	
+	
+Download tool chain intaller
+https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html
+
+git clone --recursive https://github.com/espressif/esp-mdf.git
+cd esp-mdf
+git submodule update --init
+
+cp -r $MDF_PATH/examples/get-started/ .
+cd get-started
