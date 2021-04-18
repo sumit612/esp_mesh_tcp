@@ -1,5 +1,5 @@
 # ESP_MESH_TCP
-THis example demonstates how to use ESP-MDF framework for transferring data from non-root node to tcp socket. 
+This example demonstates how to use ESP-MDF framework for transferring data from non-root node to tcp socket. 
 1. Only root node is connected to wifi router/mobile hotspot here 
 2. The non-root nodes send data to root node 
 3. The root-device forward their data to TCP socket
@@ -60,7 +60,7 @@ Here esp-idf release/v4.2 is used. For windows this is the link for installer: [
     git submodule update --init --recursive
     ```
 1. **Creating TCP server**
-Create mobile hotspot with "WPA2-Personal" security and disable "turn off hotspot aytomatically" option. 
+Create mobile hotspot with "WPA2-Personal" security and disable "turn off hotspot automatically" option. 
 Now open TCP ternimal and start tcp server as shown in the below screenshots.
 
 <img src="tcp_terminal_settings.jpg">
