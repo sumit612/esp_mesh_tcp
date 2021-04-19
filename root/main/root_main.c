@@ -19,11 +19,7 @@
 
 static const char *TAG = "get_started";
 
-#define ROUTER_SSID      "sumit_office"
-#define ROUTER_PASSWORD  "61249sumit"
-
 static esp_netif_t *netif_sta = NULL;
-
 
 static int g_sockfd    = -1;
 
@@ -385,8 +381,8 @@ void app_main()
 {
     mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
     mwifi_config_t config   = {
-        .router_ssid = ROUTER_SSID,
-        .router_password = ROUTER_PASSWORD,
+        .router_ssid = CONFIG_ROUTER_SSID,
+        .router_password = CONFIG_ROUTER_PASSWORD,
         .channel   = CONFIG_MESH_CHANNEL,
         .mesh_id   = CONFIG_MESH_ID,
         .mesh_type = CONFIG_DEVICE_TYPE,
